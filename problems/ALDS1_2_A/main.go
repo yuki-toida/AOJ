@@ -24,7 +24,7 @@ func nextInt(sc *bufio.Scanner) int {
 	return num
 }
 
-func trace(ary []int, n int) {
+func print(ary []int, n int) {
 	s := strconv.Itoa(ary[0])
 	for i := 1; i < n; i++ {
 		s += " " + strconv.Itoa(ary[i])
@@ -45,6 +45,6 @@ func bubbleSort(ary []int, n int) int {
 			}
 		}
 	}
-	trace(ary, n)
+	print(ary, n)
 	return sw
 }

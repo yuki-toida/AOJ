@@ -24,7 +24,7 @@ func nextInt(sc *bufio.Scanner) int {
 	return num
 }
 
-func trace(ary []int, n int) {
+func print(ary []int, n int) {
 	s := strconv.Itoa(ary[0])
 	for i := 1; i < n; i++ {
 		s += " " + strconv.Itoa(ary[i])
@@ -34,7 +34,7 @@ func trace(ary []int, n int) {
 
 func selectionSort(ary []int, n int) int {
 	sw := 0
-	for i := 0; i < n; i++ {
+	for i := 0; i < n-1; i++ {
 		minj := i
 		for j := i; j < n; j++ {
 			if ary[j] < ary[minj] {
@@ -47,6 +47,6 @@ func selectionSort(ary []int, n int) int {
 		}
 	}
 
-	trace(ary, n)
+	print(ary, n)
 	return sw
 }

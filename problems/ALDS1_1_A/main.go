@@ -15,7 +15,7 @@ func main() {
 	for i := 0; i < n; i++ {
 		ary[i] = nextInt(sc)
 	}
-	trace(ary, n)
+	print(ary, n)
 	insertionSort(ary, n)
 }
 
@@ -25,7 +25,7 @@ func nextInt(sc *bufio.Scanner) int {
 	return num
 }
 
-func trace(ary []int, n int) {
+func print(ary []int, n int) {
 	s := strconv.Itoa(ary[0])
 	for i := 1; i < n; i++ {
 		s += " " + strconv.Itoa(ary[i])
@@ -42,6 +42,6 @@ func insertionSort(ary []int, n int) {
 			j--
 		}
 		ary[j+1] = v
-		trace(ary, n)
+		print(ary, n)
 	}
 }
