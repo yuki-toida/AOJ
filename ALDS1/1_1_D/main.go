@@ -8,6 +8,7 @@ import (
 	"strconv"
 )
 
+// 最大利益算出
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	n := stdin(sc)

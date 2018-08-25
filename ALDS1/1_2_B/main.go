@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// 選択ソート
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Split(bufio.ScanWords)
@@ -15,7 +16,7 @@ func main() {
 	for i := 0; i < n; i++ {
 		ary[i] = nextInt(sc)
 	}
-	fmt.Println(bubbleSort(ary, n))
+	fmt.Println(selectionSort(ary, n))
 }
 
 func nextInt(sc *bufio.Scanner) int {
@@ -32,19 +33,21 @@ func print(ary []int, n int) {
 	fmt.Println(s)
 }
 
-func bubbleSort(ary []int, n int) int {
-	flag := true
+func selectionSort(ary []int, n int) int {
 	sw := 0
-	for i := 0; flag; i++ {
-		flag = false
-		for j := n - 1; i+1 <= j; j-- {
-			if ary[j] < ary[j-1] {
-				ary[j], ary[j-1] = ary[j-1], ary[j]
-				sw++
-				flag = true
+	for i := 0; i < n-1; i++ {
+		minj := i
+		for j := i; j < n; j++ {
+			if ary[j] < ary[minj] {
+				minj = j
 			}
 		}
+		if i < minj {
+			ary[i], ary[minj] = ary[minj], ary[i]
+			sw++
+		}
 	}
+
 	print(ary, n)
 	return sw
 }

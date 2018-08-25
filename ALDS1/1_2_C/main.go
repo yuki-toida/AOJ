@@ -12,6 +12,7 @@ type card struct {
 	value int
 }
 
+// 安定ソート
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Split(bufio.ScanWords)

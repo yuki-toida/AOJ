@@ -7,6 +7,7 @@ import (
 	"strconv"
 )
 
+// バブルソート
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Split(bufio.ScanWords)
@@ -15,8 +16,7 @@ func main() {
 	for i := 0; i < n; i++ {
 		ary[i] = nextInt(sc)
 	}
-	print(ary, n)
-	insertionSort(ary, n)
+	fmt.Println(bubbleSort(ary, n))
 }
 
 func nextInt(sc *bufio.Scanner) int {
@@ -33,15 +33,19 @@ func print(ary []int, n int) {
 	fmt.Println(s)
 }
 
-func insertionSort(ary []int, n int) {
-	for i := 1; i < n; i++ {
-		v := ary[i]
-		j := i - 1
-		for 0 <= j && v < ary[j] {
-			ary[j+1] = ary[j]
-			j--
+func bubbleSort(ary []int, n int) int {
+	flag := true
+	sw := 0
+	for i := 0; flag; i++ {
+		flag = false
+		for j := n - 1; i+1 <= j; j-- {
+			if ary[j] < ary[j-1] {
+				ary[j], ary[j-1] = ary[j-1], ary[j]
+				sw++
+				flag = true
+			}
 		}
-		ary[j+1] = v
-		print(ary, n)
 	}
+	print(ary, n)
+	return sw
 }

@@ -10,6 +10,7 @@ import (
 
 var cnt int
 
+// シェルソート
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Split(bufio.ScanWords)
