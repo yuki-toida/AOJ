@@ -8,39 +8,48 @@ import (
 	"strings"
 )
 
-var ary []int
+type stack struct {
+	top int
+	ary []int
+}
+
+func (s *stack) push(v int) {
+	s.ary[s.top] = v
+	s.top++
+}
+
+func (s *stack) pop() int {
+	v := s.ary[s.top-1]
+	s.top--
+	return v
+}
 
 // スタック
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Scan()
-	for _, v := range strings.Split(strings.TrimSpace(sc.Text()), " ") {
+	inputs := strings.Split(sc.Text(), " ")
+	s := stack{top: 0, ary: make([]int, len(inputs))}
+	for _, v := range inputs {
 		n, err := strconv.Atoi(v)
 		if err == nil {
-			ary = append(ary, n)
-		} else {
-			switch v {
-			case "+":
-				p1 := pop()
-				p2 := pop()
-				ary = append(ary, p2+p1)
-			case "-":
-				p1 := pop()
-				p2 := pop()
-				ary = append(ary, p2-p1)
-			case "*":
-				p1 := pop()
-				p2 := pop()
-				ary = append(ary, p2*p1)
-			}
+			s.push(n)
+			continue
+		}
+		switch v {
+		case "+":
+			v1 := s.pop()
+			v2 := s.pop()
+			s.push(v2 + v1)
+		case "-":
+			v1 := s.pop()
+			v2 := s.pop()
+			s.push(v2 - v1)
+		case "*":
+			v1 := s.pop()
+			v2 := s.pop()
+			s.push(v2 * v1)
 		}
 	}
-	fmt.Println(ary[0])
-}
-
-func pop() int {
-	i := len(ary) - 1
-	n := ary[i]
-	ary = ary[:i]
-	return n
+	fmt.Println(s.ary[0])
 }
