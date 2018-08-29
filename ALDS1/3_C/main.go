@@ -16,6 +16,7 @@ type dlist struct {
 
 var head, last *dlist
 
+// 連結リスト
 func main() {
 	var (
 		str string

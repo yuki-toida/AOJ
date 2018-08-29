@@ -26,6 +26,7 @@ type area struct {
 	index, value int
 }
 
+// 構造面積
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Scan()
