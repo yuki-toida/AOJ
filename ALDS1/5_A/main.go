@@ -10,7 +10,7 @@ import (
 var n, q int
 var A []int
 
-// 割り当て
+// 総当たり
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
 	sc.Split(bufio.ScanWords)
