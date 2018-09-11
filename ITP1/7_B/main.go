@@ -11,7 +11,6 @@ import (
 // 組み合わせの数
 func main() {
 	sc := bufio.NewScanner(os.Stdin)
-	s := ""
 	for {
 		sc.Scan()
 		ary := strings.Split(sc.Text(), " ")
@@ -35,7 +34,6 @@ func main() {
 				}
 			}
 		}
-		s += fmt.Sprintf("%v\n", cnt)
+		fmt.Println(cnt)
 	}
-	fmt.Print(s)
 }
