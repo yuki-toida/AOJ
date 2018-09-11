@@ -45,14 +45,9 @@ func main() {
 		}
 	}
 
-	s := ""
 	for _, x := range C {
-		for _, y := range x {
-			s += fmt.Sprintf("%v ", y)
-		}
-		s = strings.TrimSpace(s) + "\n"
+		fmt.Printf("%v\n", strings.Trim(fmt.Sprint(x), "[]"))
 	}
-	fmt.Print(s)
 }
 
 func parseInt64(s string) int64 {
