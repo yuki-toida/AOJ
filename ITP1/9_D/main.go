@@ -15,7 +15,6 @@ func main() {
 	str := sc.Text()
 	sc.Scan()
 	q, _ := strconv.Atoi(sc.Text())
-	s := ""
 	for i := 0; i < q; i++ {
 		sc.Scan()
 		ary := strings.Split(sc.Text(), " ")
@@ -27,10 +26,9 @@ func main() {
 		case "reverse":
 			str = str[:a] + reverse(str[a:b+1]) + str[b+1:]
 		case "print":
-			s += str[a:b+1] + "\n"
+			fmt.Printf("%v\n", str[a:b+1])
 		}
 	}
-	fmt.Print(s)
 }
 
 func reverse(s string) string {
