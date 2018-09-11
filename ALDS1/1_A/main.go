@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"os"
 	"strconv"
+	"strings"
 )
 
 // 挿入ソート
@@ -16,7 +17,7 @@ func main() {
 	for i := 0; i < n; i++ {
 		ary[i] = nextInt(sc)
 	}
-	print(ary, n)
+	print(ary)
 	insertionSort(ary, n)
 }
 
@@ -26,12 +27,8 @@ func nextInt(sc *bufio.Scanner) int {
 	return num
 }
 
-func print(ary []int, n int) {
-	s := strconv.Itoa(ary[0])
-	for i := 1; i < n; i++ {
-		s += " " + strconv.Itoa(ary[i])
-	}
-	fmt.Println(s)
+func print(ary []int) {
+	fmt.Printf("%v\n", strings.Trim(fmt.Sprint(ary), "[]"))
 }
 
 func insertionSort(ary []int, n int) {
@@ -43,6 +40,6 @@ func insertionSort(ary []int, n int) {
 			j--
 		}
 		ary[j+1] = v
-		print(ary, n)
+		print(ary)
 	}
 }
